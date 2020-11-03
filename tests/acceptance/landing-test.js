@@ -9,9 +9,11 @@ module('Acceptance | landing', function(hooks) {
     await visit('/');
 
     assert.equal(currentURL(), '/');
-    assert.dom('h2').hasText('PathSketch');
-    const aboutButton = document.querySelector('.jumbo a.button:nth-of-type(2)');
-    assert.dom(aboutButton).hasText('About Us');
+    assert.dom('nav').exists();
+    assert.dom('h1').hasText('PathSketch');
+    assert.dom('h2').hasText('Welcome to PathSketch');
+    const aboutButton = document.querySelector('.menu-about');
+    assert.dom(aboutButton).hasText('About');
     await click(aboutButton);
     
     assert.equal(currentURL(), '/about');
@@ -21,9 +23,11 @@ module('Acceptance | landing', function(hooks) {
     await visit('/about');
 
     assert.equal(currentURL(), '/about');
+    assert.dom('nav').exists();
+    assert.dom('h1').hasText('PathSketch');
     assert.dom('h2').hasText('About PathSketch');
-    const contactButton = document.querySelector('.jumbo a.button:nth-of-type(3)');
-    assert.dom(contactButton).hasText('Contact Us');
+    const contactButton = document.querySelector('.menu-contact');
+    assert.dom(contactButton).hasText('Contact');
     await click(contactButton);
 
     assert.equal(currentURL(), '/contact');
@@ -33,11 +37,31 @@ module('Acceptance | landing', function(hooks) {
     await visit('/contact');
 
     assert.equal(currentURL(), '/contact');
+    assert.dom('nav').exists();
+    assert.dom('h1').hasText('PathSketch');
     assert.dom('h2').hasText('Contact Us');
-    const homeButton = document.querySelector('.jumbo a.button:nth-of-type(1)');
-    assert.dom(homeButton).hasText('Home');
+    const homeButton = document.querySelector('a h1');
+    assert.dom(homeButton).hasText('PathSketch');
     await click(homeButton);
 
+    assert.equal(currentURL(), '/');
+  });
+
+  test('navigating using the nav-bar', async function(assert) {
+    await visit('/');
+
+    assert.dom('nav').exists();
+    assert.dom('nav a.menu-index').hasText('PathSketch')
+    assert.dom('nav a.menu-about').hasText('About');
+    assert.dom('nav a.menu-contact').hasText('Contact');
+
+    await click('nav a.menu-about');
+    assert.equal(currentURL(), '/about');
+
+    await click('nav a.menu-contact');
+    assert.equal(currentURL(), '/contact');
+
+    await click('nav a.menu-index');
     assert.equal(currentURL(), '/');
   });
 });
