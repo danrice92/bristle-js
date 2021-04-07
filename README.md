@@ -1,6 +1,6 @@
-# PathSketch JS
+# CloneForge JS
 
-PathSketch allows you to plan out and visualize career changes. This is the EmberJS client.
+CloneForge allows you to plan out and visualize career changes. This is the EmberJS client.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd path-sketch-js`
+* `cd clone-forge-js`
 * `npm install`
 
 ## Running / Development

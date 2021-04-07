@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'path-sketch-js',
+    modulePrefix: 'clone-forge-js',
     environment,
     rootURL: '/',
     locationType: 'auto',

@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'path-sketch-js/config/environment';
+import config from 'clone-forge-js/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
