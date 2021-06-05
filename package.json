@@ -1,8 +1,8 @@
 {
-  "name": "clone-forge-js",
+  "name": "course-of-life-js",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for clone-forge-js goes here",
+  "description": "Front end for Course of Life, a personal career portfolio builder",
   "repository": "",
   "license": "MIT",
   "author": "",

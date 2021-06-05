@@ -1,6 +1,6 @@
-# CloneForge JS
+# Course of Life JS
 
-CloneForge allows you to plan out and visualize career changes. This is the EmberJS client.
+Course of Life is a personal career portfolio builder. This is the EmberJS client.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd clone-forge-js`
+* `cd course-of-life-js`
 * `npm install`
 
 ## Running / Development

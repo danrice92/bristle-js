@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'clone-forge-js',
+    modulePrefix: 'course-of-life-js',
     environment,
     rootURL: '/',
     locationType: 'auto',

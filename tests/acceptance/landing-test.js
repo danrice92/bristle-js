@@ -10,8 +10,8 @@ module('Acceptance | landing', function(hooks) {
 
     assert.equal(currentURL(), '/');
     assert.dom('nav').exists();
-    assert.dom('h1').hasText('CloneForge');
-    assert.dom('h2').hasText('Welcome to CloneForge');
+    assert.dom('h1').hasText('Course of Life');
+    assert.dom('h2').hasText('Welcome to Course of Life');
     const aboutButton = document.querySelector('.menu-about');
     assert.dom(aboutButton).hasText('About');
     await click(aboutButton);
@@ -24,8 +24,8 @@ module('Acceptance | landing', function(hooks) {
 
     assert.equal(currentURL(), '/about');
     assert.dom('nav').exists();
-    assert.dom('h1').hasText('CloneForge');
-    assert.dom('h2').hasText('About CloneForge');
+    assert.dom('h1').hasText('Course of Life');
+    assert.dom('h2').hasText('About Course of Life');
     const contactButton = document.querySelector('.menu-contact');
     assert.dom(contactButton).hasText('Contact');
     await click(contactButton);
@@ -38,10 +38,10 @@ module('Acceptance | landing', function(hooks) {
 
     assert.equal(currentURL(), '/contact');
     assert.dom('nav').exists();
-    assert.dom('h1').hasText('CloneForge');
+    assert.dom('h1').hasText('Course of Life');
     assert.dom('h2').hasText('Contact Us');
     const homeButton = document.querySelector('a h1');
-    assert.dom(homeButton).hasText('CloneForge');
+    assert.dom(homeButton).hasText('Course of Life');
     await click(homeButton);
 
     assert.equal(currentURL(), '/');
@@ -51,7 +51,7 @@ module('Acceptance | landing', function(hooks) {
     await visit('/');
 
     assert.dom('nav').exists();
-    assert.dom('nav a.menu-index').hasText('CloneForge')
+    assert.dom('nav a.menu-index').hasText('Course of Life')
     assert.dom('nav a.menu-about').hasText('About');
     assert.dom('nav a.menu-contact').hasText('Contact');
 
