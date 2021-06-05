@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { click, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
-module('Acceptance | landing', function(hooks) {
+module('Acceptance: landing page', function(hooks) {
   setupApplicationTest(hooks);
 
   test('visiting /', async function(assert) {
@@ -15,7 +15,7 @@ module('Acceptance | landing', function(hooks) {
     const aboutButton = document.querySelector('.menu-about');
     assert.dom(aboutButton).hasText('About');
     await click(aboutButton);
-    
+
     assert.equal(currentURL(), '/about');
   });
 
@@ -30,13 +30,13 @@ module('Acceptance | landing', function(hooks) {
     assert.dom(contactButton).hasText('Contact');
     await click(contactButton);
 
-    assert.equal(currentURL(), '/contact');
+    assert.equal(currentURL(), '/getting-in-touch');
   });
 
-  test('visiting /contact', async function(assert) {
-    await visit('/contact');
+  test('visiting /getting-in-touch', async function(assert) {
+    await visit('/getting-in-touch');
 
-    assert.equal(currentURL(), '/contact');
+    assert.equal(currentURL(), '/getting-in-touch');
     assert.dom('nav').exists();
     assert.dom('h1').hasText('Course of Life');
     assert.dom('h2').hasText('Contact Us');
@@ -59,7 +59,7 @@ module('Acceptance | landing', function(hooks) {
     assert.equal(currentURL(), '/about');
 
     await click('nav a.menu-contact');
-    assert.equal(currentURL(), '/contact');
+    assert.equal(currentURL(), '/getting-in-touch');
 
     await click('nav a.menu-index');
     assert.equal(currentURL(), '/');
