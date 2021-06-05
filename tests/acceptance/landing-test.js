@@ -11,7 +11,7 @@ module('Acceptance | landing', function(hooks) {
     assert.equal(currentURL(), '/');
     assert.dom('nav').exists();
     assert.dom('h1').hasText('Course of Life');
-    assert.dom('h2').hasText('Welcome to Course of Life');
+    assert.dom('h2').hasText('Welcome!');
     const aboutButton = document.querySelector('.menu-about');
     assert.dom(aboutButton).hasText('About');
     await click(aboutButton);
