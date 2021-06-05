@@ -17,5 +17,6 @@ module('Integration | Component | job', function(hooks) {
     assert.dom('div .detail.pay-range').includesText('Ending Pay: $8/hour');
     assert.dom('div .detail.location').includesText('Fort Collins, CO');
     assert.dom('div .detail.career').includesText('Part of my career in: Retail Sales');
+    assert.dom('div .image').exists();
   });
 });

@@ -1,6 +1,10 @@
 {{yield}}
 <div class="job">
-  <div class="details">
+  <Job::Image
+    src="https://media1.popsugar-assets.com/files/thumbor/fP1ssP2FBASLssl67umKKTQWPOU/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/03/12/635/n/24155406/tmp_Mg4ylG_0cae29c5d0e422dd_7259691694_fb6b9b4ed0_o.jpg"
+    alt="Toys R Us"
+  />
+  <div class="details" {{on "click" this.expand}}>
     <h3>Toys R Us</h3>
     <div class="detail date-range">
       <div>
@@ -10,19 +14,21 @@
         <span>End Date:</span> January 2009
       </div>
     </div>
-    <div class="detail pay-range">
-      <div>
-        <span>Starting Pay:</span> $8/hour
+      <div class="detail pay-range">
+        <div>
+          <span>Starting Pay:</span> $8/hour
+        </div>
+        <div>
+          <span>Ending Pay:</span> $8/hour
+        </div>
       </div>
-      <div>
-        <span>Ending Pay:</span> $8/hour
+    {{#if this.isExpanded}}
+      <div class="detail location">
+        <span>Location:</span> Fort Collins, CO
       </div>
-    </div>
-    <div class="detail location">
-      <span>Location:</span> Fort Collins, CO
-    </div>
-    <div class="detail career">
-      <span>Part of my career in:</span> Retail Sales
-    </div>
+      <div class="detail career">
+        <span>Part of my career in:</span> Retail Sales
+      </div>
+    {{/if}}
   </div>
 </div>
