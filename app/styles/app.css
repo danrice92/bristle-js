@@ -30,7 +30,7 @@ body {
 }
 
 a {
-  color: #016aba;
+  color: #279AF1;
   text-decoration: none;
 }
 
@@ -51,7 +51,7 @@ p {
   padding: 10px 30px 10px;
   text-decoration: none;
   color: #fff;
-  background: #016aba;
+  background: #279AF1;
   border-radius: 5px;
   border: none;
   font-size: 20px;
@@ -270,7 +270,7 @@ p {
   margin: -20px;
   padding: 20px;
   border-radius: 5px;
-  background: #016aba;
+  background: #279AF1;
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
@@ -293,7 +293,7 @@ p {
   margin-top: 5px;
   margin-bottom: -15px;
   text-align: center;
-  color: #016aba;
+  color: #c11b0d;
 
   /* This is needed to fix a safari clipping issue */
   position: relative;
