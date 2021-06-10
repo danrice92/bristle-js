@@ -1,34 +1,27 @@
 {{yield}}
 <div class="job">
   <Job::Image
-    src="https://media1.popsugar-assets.com/files/thumbor/fP1ssP2FBASLssl67umKKTQWPOU/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/03/12/635/n/24155406/tmp_Mg4ylG_0cae29c5d0e422dd_7259691694_fb6b9b4ed0_o.jpg"
-    alt="Toys R Us"
+    src={{@job.imageSource}}
+    alt={{@job.title}}
   />
-  <div class="details" {{on "click" this.expand}}>
-    <h3>Toys R Us</h3>
+  <div class="details">
+    <h3>{{@job.title}}</h3>
     <div class="detail date-range">
-      <div>
-        <span>Start Date:</span> November 2008
-      </div>
-      <div>
-        <span>End Date:</span> January 2009
-      </div>
+      <span>Worked here from:</span> {{@job.startDate}} - {{@job.endDate}}
     </div>
-      <div class="detail pay-range">
-        <div>
-          <span>Starting Pay:</span> $8/hour
-        </div>
-        <div>
-          <span>Ending Pay:</span> $8/hour
-        </div>
-      </div>
+    <div class="detail pay-range">
+        <span>Pay range:</span> {{@job.startingPay}} - {{@job.endingPay}}
+    </div>
     {{#if this.isExpanded}}
       <div class="detail location">
-        <span>Location:</span> Fort Collins, CO
+        <span>Location:</span> {{@job.location}}
       </div>
       <div class="detail career">
-        <span>Part of my career in:</span> Retail Sales
+        <span>Part of my career in:</span> {{@job.career}}
       </div>
     {{/if}}
+    <div class="show-more-button">
+      <button class="button" {{on "click" this.expand}}>Show {{#if this.isExpanded}}less{{else}}more{{/if}}</button>
+    </div>
   </div>
 </div>

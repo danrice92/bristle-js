@@ -212,10 +212,8 @@ p {
 }
 
 .jumbo img {
-  height: 200px;
+  height: 150px;
   position: relative;
-  top: -25px;
-  right: -20px;
 }
 
 /**
@@ -223,13 +221,11 @@ p {
  */
 
 .job {
-  margin-top: 15px;
+  margin-top: 100px;
   background-color: #f6f6f6;
-  padding: 20px 25px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .job:hover {
@@ -243,8 +239,19 @@ p {
 .job .image {
   flex-grow: 0;
   flex-basis: 150px;
-  margin: 20px 25px;
   text-align: center;
+  font-size: 110%;
+  flex-basis: 100%;
+  display: block;
+  text-align: center;
+  color: #c11b0d;
+
+  /* This is needed to fix a safari clipping issue */
+  position: relative;
+}
+
+.job .image img {
+  max-width: 100%;
 }
 
 .job button.image {
@@ -279,42 +286,18 @@ p {
   opacity: 0.1;
 }
 
-.job .image img {
-  max-width: 100%;
-}
-
-.job .image.large {
-  margin: 30px 25px 50px 25px;
-  flex-basis: 100%;
-}
-
-.job .image small {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: -15px;
-  text-align: center;
-  color: #c11b0d;
-
-  /* This is needed to fix a safari clipping issue */
-  position: relative;
-}
-
-.job .image.large small {
-  margin-top: 10px;
-  margin-bottom: 0px;
-  font-size: 110%;
-}
-
 .job .details {
   flex-basis: 50%;
-  flex-grow: 2;
   display: flex;
   height: 150px;
-  margin: 20px 25px;
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: space-around;
   cursor: pointer;
+}
+
+.job .show-more-button {
+  margin-top: 10px;
 }
 
 .job h3 {
@@ -335,18 +318,6 @@ p {
 .job .detail span {
   font-weight: 400;
   font-style: normal;
-}
-
-.job .map {
-  flex-grow: 0;
-  flex-basis: 150px;
-  font-size: 0;
-  margin: 0px 25px;
-}
-
-.job .map img {
-  width: 150px;
-  height: 150px;
 }
 
 .job.detailed {
@@ -384,16 +355,6 @@ p {
   flex-shrink: 1;
 }
 
-.job.detailed .map {
-  flex-basis: 100%;
-  margin: 50px 25px 25px 25px;
-}
-
-.job.detailed .map img {
-  width: 100%;
-  height: auto;
-}
-
 @media only screen and (max-width: 919px) {
   .job.detailed .image, .job.detailed .image.large {
     margin: 30px 25px 25px 25px;
@@ -416,10 +377,6 @@ p {
 
   .job.detailed button.image:focus:after {
     opacity: 0.1;
-  }
-
-  .job.detailed .map {
-    margin-top: 25px;
   }
 }
 

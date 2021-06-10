@@ -3,9 +3,12 @@
   <LinkTo @route="about" class="button">Learn about Bristle</LinkTo>
   <div class="jobs">
     <ul class="results">
-      <li><Job /></li>
-      <li><Job /></li>
-      <li><Job /></li>
+      <li><Job @job={{@model}} /></li>
+      <li><Job @job={{@model}} /></li>
+      <li><Job @job={{@model}} /></li>
+      {{!-- {{#each @model as |job|}}
+        <li><Job @job={{job}} /></li>
+      {{/each}} --}}
     </ul>
   </div>
 </Jumbo>
