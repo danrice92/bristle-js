@@ -1,8 +1,8 @@
 {
-  "name": "course-of-life-js",
+  "name": "bristle-js",
   "version": "0.0.0",
   "private": true,
-  "description": "Front end for Course of Life, a personal career portfolio builder",
+  "description": "Front end for Bristle, a personal career portfolio builder",
   "repository": "",
   "license": "MIT",
   "author": "",

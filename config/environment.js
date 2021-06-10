@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'course-of-life-js',
+    modulePrefix: 'bristle-js',
     environment,
     rootURL: '/',
     locationType: 'auto',

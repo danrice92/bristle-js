@@ -1,7 +1,7 @@
 import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
-import config from 'course-of-life-js/config/environment';
+import config from 'bristle-js/config/environment';
 
 export default class App extends Application {
   modulePrefix = config.modulePrefix;

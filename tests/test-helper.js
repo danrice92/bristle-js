@@ -1,5 +1,5 @@
-import Application from 'course-of-life-js/app';
-import config from 'course-of-life-js/config/environment';
+import Application from 'bristle-js/app';
+import config from 'bristle-js/config/environment';
 import { setApplication } from '@ember/test-helpers';
 import { start } from 'ember-qunit';
 
