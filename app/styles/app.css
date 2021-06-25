@@ -118,7 +118,7 @@ p {
   bottom: 5px;
 }
 
-.jobs label span {
+.employments label span {
   font-size: 140%;
   margin: 50px auto 20px;
   display: block;
@@ -126,7 +126,7 @@ p {
   font-style: italic;
 }
 
-.jobs input {
+.employments input {
   padding: 11px;
   font-size: 18px;
   width: 500px;
@@ -220,41 +220,38 @@ p {
  * Individual Rental Listing
  */
 
-.job {
+.employment {
   margin-top: 100px;
   background-color: #f6f6f6;
   padding: 20px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
-.job:hover {
+.employment:hover {
   background-color: #f3f3f3;
 }
 
-.job img {
+.employment img {
   border-radius: 5px;
 }
 
-.job .image {
+.employment .image {
   flex-grow: 0;
-  flex-basis: 150px;
-  text-align: center;
-  font-size: 110%;
-  flex-basis: 100%;
-  display: block;
-  text-align: center;
   color: #c11b0d;
 
   /* This is needed to fix a safari clipping issue */
   position: relative;
 }
 
-.job .image img {
+.employment .image img {
   max-width: 100%;
 }
 
-.job button.image {
+.employment button.image {
   position: relative;
   cursor: pointer;
   border: none;
@@ -262,11 +259,11 @@ p {
   z-index: 1;
 }
 
-.job button.image:focus {
+.employment button.image:focus {
   outline: none;
 }
 
-.job button.image:after {
+.employment button.image:after {
   content: "";
   position: absolute;
   top: 0;
@@ -282,100 +279,93 @@ p {
   transition: opacity 0.25s ease-in-out;
 }
 
-.job button.image:focus:after, .job button.image:hover:after {
+.employment button.image:focus:after, .employment button.image:hover:after {
   opacity: 0.1;
 }
 
-.job .details {
-  flex-basis: 50%;
+.employment .details {
   display: flex;
-  height: 150px;
-  justify-content: space-between;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-content: space-around;
   cursor: pointer;
+  width: 50%;
 }
 
-.job .show-more-button {
+.employment .show-more-button {
   margin-top: 10px;
 }
 
-.job h3 {
-  flex-basis: 100%;
-}
-
-.job h3 a {
+.employment h3 a {
   display: inline;
 }
 
-.job .detail {
-  flex-basis: 50%;
+.employment .detail {
   font-weight: 300;
   font-style: italic;
   white-space: nowrap;
 }
 
-.job .detail span {
+.employment .detail span {
   font-weight: 400;
   font-style: normal;
 }
 
-.job.detailed {
+.employment.detailed {
   background: none;
   align-items: flex-start;
 }
 
-.job.detailed .image {
+.employment.detailed .image {
   flex-basis: 320px;
 }
 
-.job.detailed .image.large {
+.employment.detailed .image.large {
   margin: 30px 25px 50px 25px;
   flex-basis: 100%;
 }
 
-.job.detailed .details {
+.employment.detailed .details {
   height: auto;
 }
 
-.job.detailed h3 {
+.employment.detailed h3 {
   font-size: 200%;
   margin-bottom: 10px;
 }
 
-.job.detailed .detail {
+.employment.detailed .detail {
   margin: 5px 0px;
   flex-basis: 100%;
   flex-shrink: 2;
 }
 
-.job.detailed .description {
+.employment.detailed .description {
   white-space: normal;
   flex-basis: 100%;
   flex-shrink: 1;
 }
 
 @media only screen and (max-width: 919px) {
-  .job.detailed .image, .job.detailed .image.large {
+  .employment.detailed .image, .employment.detailed .image.large {
     margin: 30px 25px 25px 25px;
     flex-basis: 100%;
     cursor: default;
   }
 
-  .job.detailed .image:hover {
+  .employment.detailed .image:hover {
     flex-basis: 100%;
     cursor: default;
   }
 
-  .job.detailed .image small {
+  .employment.detailed .image small {
     display: none;
   }
 
-  .job.detailed button.image:hover:after {
+  .employment.detailed button.image:hover:after {
     opacity: 0;
   }
 
-  .job.detailed button.image:focus:after {
+  .employment.detailed button.image:focus:after {
     opacity: 0.1;
   }
 }

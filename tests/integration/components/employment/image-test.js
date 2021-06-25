@@ -3,12 +3,12 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | job/image', function(hooks) {
+module('Integration | Component | employment/image', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders the image', async function(assert) {
       await render(hbs`
-      <Job::Image
+      <Employment::Image
         src="/assets/images/teaching-tomster.png"
         alt="Teaching Tomster"
       />

@@ -1,14 +1,11 @@
 <Jumbo>
   <h2>Welcome!</h2>
   <LinkTo @route="about" class="button">Learn about Bristle</LinkTo>
-  <div class="jobs">
+  <div class="employments">
     <ul class="results">
-      <li><Job @job={{@model}} /></li>
-      <li><Job @job={{@model}} /></li>
-      <li><Job @job={{@model}} /></li>
-      {{!-- {{#each @model as |job|}}
-        <li><Job @job={{job}} /></li>
-      {{/each}} --}}
+      {{#each @model as |employment|}}
+        <li><Employment @employment={{employment}} /></li>
+      {{/each}}
     </ul>
   </div>
 </Jumbo>
