@@ -23,15 +23,13 @@ module('Integration | Component | job', function(hooks) {
 
     assert.dom('div').hasClass('job');
     assert.dom('div h3').hasText('Toys R Us');
-    assert.dom('div .detail.date-range').includesText('Start Date: November 2008');
-    assert.dom('div .detail.date-range').includesText('End Date: January 2009');
-    assert.dom('div .detail.pay-range').includesText('Starting Pay: $8/hour');
-    assert.dom('div .detail.pay-range').includesText('Ending Pay: $8/hour');
+    assert.dom('div .detail.date-range').includesText('Worked here from: November 2008 - January 2009');
+    assert.dom('div .detail.pay-range').includesText('Pay range: $8/hour - $8/hour');
     assert.dom('div .image').exists();
     assert.dom('div .detail').doesNotHaveClass('location');
     assert.dom('div .detail').doesNotHaveClass('career');
 
-    await click('div.details');
+    await click('button.button');
 
     assert.dom('div .detail.location').includesText('Fort Collins, CO');
     assert.dom('div .detail.career').includesText('Part of my career in: Retail Sales');
