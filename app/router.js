@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'course-of-life-js/config/environment';
+import config from 'bristle-js/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;

@@ -11,6 +11,5 @@ module('Integration | Component | jumbo', function(hooks) {
 
     assert.dom('.jumbo').exists();
     assert.dom('.jumbo').includesText('Hello World');
-    assert.dom('.jumbo .tomster').exists();
   });
 });

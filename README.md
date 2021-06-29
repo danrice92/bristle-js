@@ -1,6 +1,6 @@
-# Course of Life JS
+# Bristle JS
 
-Course of Life is a personal career portfolio builder. This is the EmberJS client.
+Bristle is a personal career portfolio builder. This is the EmberJS client.
 
 ## Prerequisites
 
@@ -13,12 +13,12 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd course-of-life-js`
+* `cd bristle-js`
 * `npm install`
 
 ## Running / Development
 
-* `ember serve`
+* `ember server` or `ember s` for short
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
@@ -29,7 +29,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Running Tests
 
 * `ember test`
-* `ember test --server`
+* `ember test --server` or `ember t -s` for short
 
 ### Linting
 

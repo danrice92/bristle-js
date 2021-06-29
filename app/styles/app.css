@@ -30,7 +30,7 @@ body {
 }
 
 a {
-  color: #016aba;
+  color: #279AF1;
   text-decoration: none;
 }
 
@@ -51,7 +51,7 @@ p {
   padding: 10px 30px 10px;
   text-decoration: none;
   color: #fff;
-  background: #016aba;
+  background: #279AF1;
   border-radius: 5px;
   border: none;
   font-size: 20px;
@@ -118,7 +118,7 @@ p {
   bottom: 5px;
 }
 
-.rentals label span {
+.employments label span {
   font-size: 140%;
   margin: 50px auto 20px;
   display: block;
@@ -126,7 +126,7 @@ p {
   font-style: italic;
 }
 
-.rentals input {
+.employments input {
   padding: 11px;
   font-size: 18px;
   width: 500px;
@@ -212,42 +212,46 @@ p {
 }
 
 .jumbo img {
-  height: 200px;
+  height: 150px;
   position: relative;
-  top: -25px;
-  right: -20px;
 }
 
 /**
  * Individual Rental Listing
  */
 
-.rental {
-  margin-top: 15px;
+.employment {
+  margin-top: 100px;
   background-color: #f6f6f6;
-  padding: 20px 25px;
+  padding: 20px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
 }
 
-.rental:hover {
+.employment:hover {
   background-color: #f3f3f3;
 }
 
-.rental img {
+.employment img {
   border-radius: 5px;
 }
 
-.rental .image {
+.employment .image {
   flex-grow: 0;
-  flex-basis: 150px;
-  margin: 20px 25px;
-  text-align: center;
+  color: #c11b0d;
+
+  /* This is needed to fix a safari clipping issue */
+  position: relative;
 }
 
-.rental button.image {
+.employment .image img {
+  max-width: 100%;
+}
+
+.employment button.image {
   position: relative;
   cursor: pointer;
   border: none;
@@ -255,11 +259,11 @@ p {
   z-index: 1;
 }
 
-.rental button.image:focus {
+.employment button.image:focus {
   outline: none;
 }
 
-.rental button.image:after {
+.employment button.image:after {
   content: "";
   position: absolute;
   top: 0;
@@ -270,155 +274,99 @@ p {
   margin: -20px;
   padding: 20px;
   border-radius: 5px;
-  background: #016aba;
+  background: #279AF1;
   opacity: 0;
   transition: opacity 0.25s ease-in-out;
 }
 
-.rental button.image:focus:after, .rental button.image:hover:after {
+.employment button.image:focus:after, .employment button.image:hover:after {
   opacity: 0.1;
 }
 
-.rental .image img {
-  max-width: 100%;
-}
-
-.rental .image.large {
-  margin: 30px 25px 50px 25px;
-  flex-basis: 100%;
-}
-
-.rental .image small {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: -15px;
-  text-align: center;
-  color: #016aba;
-
-  /* This is needed to fix a safari clipping issue */
-  position: relative;
-}
-
-.rental .image.large small {
-  margin-top: 10px;
-  margin-bottom: 0px;
-  font-size: 110%;
-}
-
-.rental .details {
-  flex-basis: 50%;
-  flex-grow: 2;
+.employment .details {
   display: flex;
-  height: 150px;
-  margin: 20px 25px;
-  justify-content: space-between;
+  flex-direction: column;
   flex-wrap: wrap;
-  align-content: space-around;
+  cursor: pointer;
+  width: 50%;
 }
 
-.rental h3 {
-  flex-basis: 100%;
+.employment .show-more-button {
+  margin-top: 10px;
 }
 
-.rental h3 a {
+.employment h3 a {
   display: inline;
 }
 
-.rental .detail {
-  flex-basis: 50%;
+.employment .detail {
   font-weight: 300;
   font-style: italic;
   white-space: nowrap;
 }
 
-.rental .detail span {
+.employment .detail span {
   font-weight: 400;
   font-style: normal;
 }
 
-.rental .map {
-  flex-grow: 0;
-  flex-basis: 150px;
-  font-size: 0;
-  margin: 0px 25px;
-}
-
-.rental .map img {
-  width: 150px;
-  height: 150px;
-}
-
-.rental.detailed {
+.employment.detailed {
   background: none;
   align-items: flex-start;
 }
 
-.rental.detailed .image {
+.employment.detailed .image {
   flex-basis: 320px;
 }
 
-.rental.detailed .image.large {
+.employment.detailed .image.large {
   margin: 30px 25px 50px 25px;
   flex-basis: 100%;
 }
 
-.rental.detailed .details {
+.employment.detailed .details {
   height: auto;
 }
 
-.rental.detailed h3 {
+.employment.detailed h3 {
   font-size: 200%;
   margin-bottom: 10px;
 }
 
-.rental.detailed .detail {
+.employment.detailed .detail {
   margin: 5px 0px;
   flex-basis: 100%;
   flex-shrink: 2;
 }
 
-.rental.detailed .description {
+.employment.detailed .description {
   white-space: normal;
   flex-basis: 100%;
   flex-shrink: 1;
 }
 
-.rental.detailed .map {
-  flex-basis: 100%;
-  margin: 50px 25px 25px 25px;
-}
-
-.rental.detailed .map img {
-  width: 100%;
-  height: auto;
-}
-
 @media only screen and (max-width: 919px) {
-  .rental.detailed .image, .rental.detailed .image.large {
+  .employment.detailed .image, .employment.detailed .image.large {
     margin: 30px 25px 25px 25px;
     flex-basis: 100%;
     cursor: default;
   }
 
-  .rental.detailed .image:hover {
+  .employment.detailed .image:hover {
     flex-basis: 100%;
     cursor: default;
   }
 
-  .rental.detailed .image small {
+  .employment.detailed .image small {
     display: none;
   }
 
-  .rental.detailed button.image:hover:after {
+  .employment.detailed button.image:hover:after {
     opacity: 0;
   }
 
-  .rental.detailed button.image:focus:after {
+  .employment.detailed button.image:focus:after {
     opacity: 0.1;
-  }
-
-  .rental.detailed .map {
-    margin-top: 25px;
   }
 }
 
@@ -444,17 +392,6 @@ p {
 
 .relative {
   position: relative;
-}
-
-.tomster {
-  background: url(../assets/images/teaching-tomster.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 200px;
-  width: 200px;
-
-  position: relative;
-  top: -25px;
 }
 
 .screen-reader{

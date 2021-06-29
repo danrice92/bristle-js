@@ -1,3 +1,11 @@
 <Jumbo>
-  <h2>Welcome to Course of Life</h2>
+  <h2>Welcome!</h2>
+  <LinkTo @route="about" class="button">Learn about Bristle</LinkTo>
+  <div class="employments">
+    <ul class="results">
+      {{#each @model as |employment|}}
+        <li><Employment @employment={{employment}} /></li>
+      {{/each}}
+    </ul>
+  </div>
 </Jumbo>
