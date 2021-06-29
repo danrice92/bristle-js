@@ -4,14 +4,20 @@ import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 const mockEmployment = {
-  title: 'Toys R Us',
+  job_title: 'Cashier',
+  employer_name: 'Toys R Us',
   imageSource: 'https://media1.popsugar-assets.com/files/thumbor/fP1ssP2FBASLssl67umKKTQWPOU/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2018/03/12/635/n/24155406/tmp_Mg4ylG_0cae29c5d0e422dd_7259691694_fb6b9b4ed0_o.jpg',
-  startDate: 'November 2008',
-  endDate: 'January 2009',
-  startingPay: '$8/hour',
-  endingPay: '$8/hour',
-  location: 'Fort Collins, CO',
-  career: 'Retail Sales'
+  start_date: 'November 2008',
+  end_date: 'January 2009',
+  starting_pay: '8.0/hour',
+  ending_pay: '8.0/hour',
+  location: {
+    address: '123 Example Road',
+    city: 'Fort Collins',
+    state: 'CO',
+    zipcode: '80528'
+  },
+  career_title: 'Retail Sales'
 };
 
 module('Integration | Component | employment', function(hooks) {
@@ -22,9 +28,9 @@ module('Integration | Component | employment', function(hooks) {
     await render(hbs`<Employment @employment={{this.employment}}/>`);
 
     assert.dom('div').hasClass('employment');
-    assert.dom('div h3').hasText('Toys R Us');
+    assert.dom('div h3').hasText('Cashier at Toys R Us');
     assert.dom('div .detail.date-range').includesText('Worked here from: November 2008 - January 2009');
-    assert.dom('div .detail.pay-range').includesText('Pay range: $8/hour - $8/hour');
+    assert.dom('div .detail.pay-range').includesText('Pay range: $8.0/hour - $8.0/hour');
     assert.dom('div .image').exists();
     assert.dom('div .detail').doesNotHaveClass('location');
     assert.dom('div .detail').doesNotHaveClass('career');
