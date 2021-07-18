@@ -7,8 +7,8 @@ export default class IndexRoute extends Route {
       const responseJSON = await response.json();
       console.log("responseJSON", responseJSON)
       return responseJSON.employments;
-    } catch (e) {
-      console.log("nah it errored", e)
+    } catch (error) {
+      console.log("nah it errored", error)
     }
   }
 }
