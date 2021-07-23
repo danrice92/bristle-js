@@ -1,13 +1,29 @@
-<nav class="menu">
-  <LinkTo @route="index" class="menu-index">
-    <h1>Bristle</h1>
-  </LinkTo>
-  <div class="links">
-    <LinkTo @route="about" class="menu-about">
-      About
-    </LinkTo>
-    <LinkTo @route="contact" class="menu-contact">
-      Contact
-    </LinkTo>
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container-fluid">
+    <LinkTo @route="index" class="navbar-brand" id="menu-index">Bristle</LinkTo>
+    <button class="navbar-toggler"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      data-bs-target="#navbarSupportedContent"
+      data-bs-toggle="collapse"
+      type="button"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <LinkTo @route="about" aria-current="page" class="nav-link active" id="menu-about">
+            About
+          </LinkTo>
+        </li>
+        <li class="nav-item">
+          <LinkTo @route="contact" aria-current="page" class="nav-link active" id="menu-contact">
+            Contact
+          </LinkTo>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>

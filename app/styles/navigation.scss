@@ -1,0 +1,51 @@
+nav.menu {
+  height: 4em;
+  background-color: $red-500;
+
+  h1 {
+    position: relative;
+    padding: 5px 0 0 8px;
+    color: #f9f9f9;
+    font-size: 1.8em;
+  }
+  a, .links {
+    display: inline-block;
+  }
+  a {
+    text-decoration: none;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  a:hover,
+  a.active {
+    opacity: 1;
+  }
+  .links {
+    padding: 0 21px;
+  }
+  .links a {
+    position: relative;
+    bottom: 5px;
+  }
+  input:focus {
+    background-color: #f9f9f9;
+    outline: none;
+  }
+  button {
+    margin-right: 15px;
+    position: relative;
+    top: -1px;
+    left: -5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #262626;
+    cursor: pointer;
+    opacity: 1;
+  }
+  button:hover {
+    background-color: #111;
+    opacity: 1;
+  }
+}
