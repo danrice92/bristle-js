@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-export default class IndexRoute extends Route {
+export default class EmploymentsRoute extends Route {
   async model() {
     try {
       const response = await fetch('http://localhost:3000/api/v1/employments');
