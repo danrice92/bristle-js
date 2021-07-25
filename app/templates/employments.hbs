@@ -1,9 +1,7 @@
-<Jumbo>
-  <div class="employments">
-    <ul class="results">
-      {{#each @model as |employment|}}
-        <li><Employment @employment={{employment}} /></li>
-      {{/each}}
-    </ul>
-  </div>
-</Jumbo>
+<div class="employments">
+  <ul class="results">
+    {{#each @model as |employment|}}
+      <li><Employment @employment={{employment}} /></li>
+    {{/each}}
+  </ul>
+</div>
