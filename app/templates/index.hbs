@@ -1,11 +1,14 @@
-<Jumbo>
-  <h2>Welcome!</h2>
-  <LinkTo @route="about" class="button">Learn about Bristle</LinkTo>
-  <div class="employments">
-    <ul class="results">
-      {{#each @model as |employment|}}
-        <li><Employment @employment={{employment}} /></li>
-      {{/each}}
-    </ul>
+<div class="row px-4 py-4 my-4 text-center">
+  <h1 class="display-5 fw-bold pb-4">Prepare Your Career for Takeoff.</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      Bristle is a career-building tool that is currently under development.
+    </p>
+    <p class="lead mb-4">
+      Our goal is to allow you to build a personalized career portfolio that you can use to generate resumes, complete job applications in a click, track your career trajectory, and find new opportunities that are relevant to you.
+    </p>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <LinkTo @route="about" class="btn btn-primary btn-lg px-4 gap-3">Join the waitlist</LinkTo>
+    </div>
   </div>
-</Jumbo>
+</div>

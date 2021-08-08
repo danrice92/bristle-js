@@ -10,9 +10,9 @@ module('Acceptance | landing', function(hooks) {
 
     assert.equal(currentURL(), '/');
     assert.dom('nav').exists();
-    assert.dom('h1').hasText('Bristle');
-    assert.dom('h2').hasText('Welcome!');
-    const aboutButton = document.querySelector('.menu-about');
+    assert.dom('a.navbar-brand').hasText('Bristle');
+    assert.dom('h1').hasText('Prepare Your Career for Takeoff.');
+    const aboutButton = document.querySelector('#menu-about');
     assert.dom(aboutButton).hasText('About');
     await click(aboutButton);
 
@@ -24,9 +24,9 @@ module('Acceptance | landing', function(hooks) {
 
     assert.equal(currentURL(), '/about');
     assert.dom('nav').exists();
-    assert.dom('h1').hasText('Bristle');
+    assert.dom('a.navbar-brand').hasText('Bristle');
     assert.dom('h2').hasText('About Bristle');
-    const contactButton = document.querySelector('.menu-contact');
+    const contactButton = document.querySelector('#menu-contact');
     assert.dom(contactButton).hasText('Contact');
     await click(contactButton);
 
@@ -38,9 +38,9 @@ module('Acceptance | landing', function(hooks) {
 
     assert.equal(currentURL(), '/getting-in-touch');
     assert.dom('nav').exists();
-    assert.dom('h1').hasText('Bristle');
+    assert.dom('a.navbar-brand').hasText('Bristle');
     assert.dom('h2').hasText('Contact Us');
-    const homeButton = document.querySelector('a h1');
+    const homeButton = document.querySelector('a.navbar-brand');
     assert.dom(homeButton).hasText('Bristle');
     await click(homeButton);
 
@@ -51,17 +51,17 @@ module('Acceptance | landing', function(hooks) {
     await visit('/');
 
     assert.dom('nav').exists();
-    assert.dom('nav a.menu-index').hasText('Bristle')
-    assert.dom('nav a.menu-about').hasText('About');
-    assert.dom('nav a.menu-contact').hasText('Contact');
+    assert.dom('nav a#menu-index').hasText('Bristle')
+    assert.dom('nav a#menu-about').hasText('About');
+    assert.dom('nav a#menu-contact').hasText('Contact');
 
-    await click('nav a.menu-about');
+    await click('nav a#menu-about');
     assert.equal(currentURL(), '/about');
 
-    await click('nav a.menu-contact');
+    await click('nav a#menu-contact');
     assert.equal(currentURL(), '/getting-in-touch');
 
-    await click('nav a.menu-index');
+    await click('nav a#menu-index');
     assert.equal(currentURL(), '/');
   });
 });
