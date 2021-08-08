@@ -10,4 +10,5 @@ Router.map(function() {
   this.route('employments');
   this.route('about');
   this.route('contact', { path: 'getting-in-touch' });
+  this.route('employments');
 });
