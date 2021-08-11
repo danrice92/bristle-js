@@ -1,0 +1,7 @@
+.bold-h1 {
+  @extend .display-5, .fw-bold, .pb-4;
+}
+
+.bold-h2 {
+  @extend .display-6, .fw-bold, .pb-4;
+}
