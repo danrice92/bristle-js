@@ -8,6 +8,6 @@ export default class SignUpController extends Controller {
   @action async createUser(event) {
     event.preventDefault();
     console.log("button working?", event, 'email:', this.email, this.model)
-    this.transitionToRoute('/');
+    this.transitionToRoute('index');
   }
 }
