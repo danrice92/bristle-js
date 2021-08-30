@@ -16,5 +16,6 @@ Router.map(function() {
   this.route('sign-up');
 
   // private pages
+  this.route('email-verification');
   this.route('employments');
 });

@@ -4,7 +4,7 @@ import Route from '@ember/routing/route';
 
 export default class SignUpRoute extends Route {
   async model(params) {
-    console.log('idk, random nonsense!', params, 'magical?', this.store, this.adapter)
+    // console.log('idk, random nonsense!', params, 'magical?', this.store, this.adapter)
     // this.store.createRecord('user', params);
     // this.store.adapterFor('user').createRecord(params)
     // this.adapterFor('user').createRecord('user', params)
