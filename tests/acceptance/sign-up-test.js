@@ -4,8 +4,10 @@ import { setupApplicationTest } from 'ember-qunit';
 import Service from '@ember/service';
 
 class StoreStub extends Service {
-  createRecord() {
-    return { email: 'user@example.com', isValid: true, save: () => true }
+  createRecord(modelName, obj) {
+    if (modelName === 'user' && obj.email) {
+      return { email: obj.email, isValid: true, save: () => true }
+    }
   }
 }
 
