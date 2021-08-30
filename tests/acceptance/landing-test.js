@@ -57,10 +57,12 @@ module('Acceptance | landing', function(hooks) {
   test('clicking the Sign up button', async function(assert) {
     await visit ('/');
     assert.equal(currentURL(), '/');
-    assert.dom('a.btn-primary').exists();
-    assert.dom('a.btn-primary').hasText('Sign up');
 
-    await click('a.btn-primary');
+    const signUpButton = document.querySelector('a.primary-button');
+    assert.dom(signUpButton).exists();
+    assert.dom(signUpButton).hasText('Sign up');
+
+    await click(signUpButton);
     assert.equal(currentURL(), '/sign-up');
   });
 });
