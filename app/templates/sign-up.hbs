@@ -1,12 +1,12 @@
 <div class="row padded-centered-row">
   <h2 class="bold-h2">Sign up</h2>
-  <form>
-    <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
+  <form {{on "submit" this.createUser}}>
+    <div class="form-field">
+      <Input @class="form-control" @id="email" @name="email" @placeholder="name@example.com" @type="email" @value={{this.email}} />
+      <label for="email">Email address</label>
     </div>
-    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <button type="submit" class="btn btn-primary btn-lg mb-3">Create account</button>
+    <div class="button-container">
+      <button class="primary-button form-button" type="submit">Create account</button>
     </div>
   </form>
 </div>

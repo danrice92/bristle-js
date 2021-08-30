@@ -1,0 +1,15 @@
+.form-field {
+  @extend .form-floating, .mb-3;
+}
+
+.half-width-column {
+  @extend .col-lg-6, .mx-auto;
+}
+
+.headline {
+  @extend .lead, .mb-4;
+}
+
+.padded-centered-row {
+  @extend .px-4, .py-4, .my-4, .text-center;
+}
