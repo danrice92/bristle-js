@@ -8,6 +8,7 @@ export default class SignUpController extends Controller {
   @action async createUser(event) {
     event.preventDefault();
     const user = this.store.createRecord('user', { email: this.email });
+    console.log('user submitted', user)
 
     if (user.isValid) {
       user.save();
