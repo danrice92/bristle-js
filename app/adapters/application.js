@@ -1,8 +1,8 @@
-import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import RESTAdapater from '@ember-data/adapter/rest';
 import { underscore } from '@ember/string';
 import fetch from 'fetch';
 
-export default class ApplicationAdapter extends JSONAPIAdapter {
+export default class ApplicationAdapter extends RESTAdapater {
   host = 'http://localhost:3000';
   namespace = 'api/v1';
   headers = {
@@ -17,14 +17,21 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   createRecord = async(store, type, snapshot) => {
     let body = this.serialize(snapshot);
     console.log('serialized data', body)
-    const response = await fetch(
-      `${this.host}/${this.namespace}/users`,
-      {
-        method: 'post',
-        headers: this.headers,
-        body: JSON.stringify(body)
-      }
-    );
-    console.log('persisted?', response)
+    try {
+      const response = await fetch(
+        `${this.host}/${this.namespace}/users`,
+        {
+          method: 'post',
+          headers: this.headers,
+          body: JSON.stringify(body)
+        }
+      );
+      const json = await response.json();
+      console.log('hey look, it RESTful', json)
+      return json;
+    } catch (error) {
+      console.log('Caught error:', error);
+      return error;
+    }
   }
 }
