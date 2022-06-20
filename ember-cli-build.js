@@ -9,6 +9,10 @@ module.exports = function(defaults) {
       cascade: true,
       sourcemap: true
     },
+    'ember-fetch': {
+      nativePromise: true,
+      preferNative: true
+    },
     sassOptions: {
       sourceMapEmbed: true
     }

@@ -28,7 +28,7 @@ module('Integration | Component | employment', function(hooks) {
     await render(hbs`<Employment @employment={{this.employment}}/>`);
 
     assert.dom('div').hasClass('employment');
-    assert.dom('div h3').hasText('Cashier at Toys R Us');
+    assert.dom('div h3').hasText(`${mockEmployment.job_title} at ${mockEmployment.employer_name}`);
     assert.dom('div .detail.date-range').includesText('Worked here from: November 2008 - January 2009');
     assert.dom('div .detail.pay-range').includesText('Pay range: $8.0/hour - $8.0/hour');
     assert.dom('div .image').exists();

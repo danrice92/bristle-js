@@ -7,61 +7,62 @@ module('Acceptance | landing', function(hooks) {
 
   test('visiting /', async function(assert) {
     await visit('/');
-
     assert.equal(currentURL(), '/');
     assert.dom('nav').exists();
     assert.dom('a.navbar-brand').hasText('Bristle');
     assert.dom('h1').hasText('Prepare Your Career for Takeoff.');
-    const aboutButton = document.querySelector('#menu-about');
-    assert.dom(aboutButton).hasText('About');
-    await click(aboutButton);
-
-    assert.equal(currentURL(), '/about');
   });
 
   test('visiting /about', async function(assert) {
     await visit('/about');
-
     assert.equal(currentURL(), '/about');
     assert.dom('nav').exists();
     assert.dom('a.navbar-brand').hasText('Bristle');
     assert.dom('h2').hasText('About Bristle');
-    const contactButton = document.querySelector('#menu-contact');
-    assert.dom(contactButton).hasText('Contact');
-    await click(contactButton);
 
-    assert.equal(currentURL(), '/getting-in-touch');
+    const homeButton = document.querySelector('a.navbar-brand');
+    assert.dom(homeButton).hasText('Bristle');
+
+    await click(homeButton);
+    assert.equal(currentURL(), '/');
   });
 
-  test('visiting /getting-in-touch', async function(assert) {
-    await visit('/getting-in-touch');
-
-    assert.equal(currentURL(), '/getting-in-touch');
+  test('visiting /contact-us', async function(assert) {
+    await visit('/contact-us');
+    assert.equal(currentURL(), '/contact-us');
     assert.dom('nav').exists();
     assert.dom('a.navbar-brand').hasText('Bristle');
     assert.dom('h2').hasText('Contact Us');
+
     const homeButton = document.querySelector('a.navbar-brand');
     assert.dom(homeButton).hasText('Bristle');
-    await click(homeButton);
 
+    await click(homeButton);
     assert.equal(currentURL(), '/');
   });
 
   test('navigating using the nav-bar', async function(assert) {
     await visit('/');
-
     assert.dom('nav').exists();
-    assert.dom('nav a#menu-index').hasText('Bristle')
-    assert.dom('nav a#menu-about').hasText('About');
-    assert.dom('nav a#menu-contact').hasText('Contact');
+    assert.dom('nav a#menu-index').hasText('Bristle');
+    assert.dom('nav a#menu-sign-up').hasText('Sign up');
 
-    await click('nav a#menu-about');
-    assert.equal(currentURL(), '/about');
-
-    await click('nav a#menu-contact');
-    assert.equal(currentURL(), '/getting-in-touch');
+    await click('nav a#menu-sign-up');
+    assert.equal(currentURL(), '/sign-up');
 
     await click('nav a#menu-index');
     assert.equal(currentURL(), '/');
+  });
+
+  test('clicking the Sign up button', async function(assert) {
+    await visit ('/');
+    assert.equal(currentURL(), '/');
+
+    const signUpButton = document.querySelector('a.primary-button');
+    assert.dom(signUpButton).exists();
+    assert.dom(signUpButton).hasText('Sign up');
+
+    await click(signUpButton);
+    assert.equal(currentURL(), '/sign-up');
   });
 });
