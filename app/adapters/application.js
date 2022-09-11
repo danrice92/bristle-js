@@ -30,7 +30,7 @@ export default class ApplicationAdapter extends RESTAdapater {
       console.log('hey look, it RESTful', json)
       return json;
     } catch (error) {
-      console.log('Caught error:', error);
+      console.log('An error occured in the application adapter.', error);
       return error;
     }
   }
