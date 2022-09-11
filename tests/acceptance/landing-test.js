@@ -1,11 +1,10 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupApplicationTest } from 'ember-mocha';
-import { visit, currentURL, click } from '@ember/test-helpers';
+import { visit, currentURL, click, find } from '@ember/test-helpers';
 
 describe('Landing page and navigation', function() {
   setupApplicationTest();
-  const find = (selector) => document.querySelector(selector);
 
   it('can visit /', async function() {
     await visit('/');
