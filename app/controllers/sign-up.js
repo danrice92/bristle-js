@@ -10,7 +10,7 @@ export default class SignUpController extends Controller {
     const user = this.store.createRecord('user', { email: this.email });
 
     if (user.isValid) {
-      user.save().then(() => this.transitionToRoute('email-verification')).catch((reason) => console.log('reason?', reason));
+      // user.save().then(() => this.transitionToRoute('email-verification')).catch((reason) => console.log('reason?', reason));
     }
   }
 

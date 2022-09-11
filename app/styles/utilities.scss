@@ -13,3 +13,7 @@
 .padded-centered-row {
   @extend .px-4, .py-4, .my-4, .text-center;
 }
+
+.padded-row {
+  @extend .px-4, .py-4, .my-4;
+}

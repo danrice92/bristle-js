@@ -1,68 +1,60 @@
-import { module, test } from 'qunit';
-import { click, visit, currentURL } from '@ember/test-helpers';
-import { setupApplicationTest } from 'ember-qunit';
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
+import { setupApplicationTest } from 'ember-mocha';
+import { visit, currentURL, click } from '@ember/test-helpers';
 
-module('Acceptance | landing', function(hooks) {
-  setupApplicationTest(hooks);
+describe('Landing page and navigation', function() {
+  setupApplicationTest();
+  const find = (selector) => document.querySelector(selector);
 
-  test('visiting /', async function(assert) {
+  it('can visit /', async function() {
     await visit('/');
-    assert.equal(currentURL(), '/');
-    assert.dom('nav').exists();
-    assert.dom('a.navbar-brand').hasText('Bristle');
-    assert.dom('h1').hasText('Prepare Your Career for Takeoff.');
+    expect(currentURL()).to.equal('/');
+    expect(find('a.navbar-brand')).to.have.text('Bristle');
+    expect(find('.bold-h1')).to.have.text('Prepare Your Career for Takeoff.');
   });
 
-  test('visiting /about', async function(assert) {
+  it('can visit /about', async function() {
     await visit('/about');
-    assert.equal(currentURL(), '/about');
-    assert.dom('nav').exists();
-    assert.dom('a.navbar-brand').hasText('Bristle');
-    assert.dom('h2').hasText('About Bristle');
+    expect(currentURL()).to.equal('/about');
+    expect(find('h2.header')).to.have.text('About Bristle');
 
-    const homeButton = document.querySelector('a.navbar-brand');
-    assert.dom(homeButton).hasText('Bristle');
+    const homeButton = find('.navbar-brand');
+    expect(homeButton).to.have.text('Bristle');
 
     await click(homeButton);
-    assert.equal(currentURL(), '/');
+    expect(currentURL()).to.equal('/');
   });
 
-  test('visiting /contact-us', async function(assert) {
+  it('can visit /contact-us', async function() {
     await visit('/contact-us');
-    assert.equal(currentURL(), '/contact-us');
-    assert.dom('nav').exists();
-    assert.dom('a.navbar-brand').hasText('Bristle');
-    assert.dom('h2').hasText('Contact Us');
+    expect(currentURL()).to.equal('/contact-us');
+    expect(find('h2.header')).to.have.text('Contact Us');
 
-    const homeButton = document.querySelector('a.navbar-brand');
-    assert.dom(homeButton).hasText('Bristle');
+    const homeButton = find('.navbar-brand');
+    expect(homeButton).to.have.text('Bristle');
 
     await click(homeButton);
-    assert.equal(currentURL(), '/');
+    expect(currentURL()).to.equal('/');
   });
 
-  test('navigating using the nav-bar', async function(assert) {
+  it('can navigate using the nav-bar', async function() {
     await visit('/');
-    assert.dom('nav').exists();
-    assert.dom('nav a#menu-index').hasText('Bristle');
-    assert.dom('nav a#menu-sign-up').hasText('Sign up');
-
     await click('nav a#menu-sign-up');
-    assert.equal(currentURL(), '/sign-up');
+    expect(currentURL()).to.equal('/sign-up');
 
     await click('nav a#menu-index');
-    assert.equal(currentURL(), '/');
+    expect(currentURL()).to.equal('/');
   });
 
-  test('clicking the Sign up button', async function(assert) {
+  it('can sign up using the Sign up button', async function() {
     await visit ('/');
-    assert.equal(currentURL(), '/');
+    expect(currentURL()).to.equal('/');
 
-    const signUpButton = document.querySelector('a.primary-button');
-    assert.dom(signUpButton).exists();
-    assert.dom(signUpButton).hasText('Sign up');
+    const signUpButton = find('a.primary-button');
+    expect(signUpButton).to.have.text('Sign up');
 
     await click(signUpButton);
-    assert.equal(currentURL(), '/sign-up');
+    expect(currentURL()).to.equal('/sign-up');
   });
 });
