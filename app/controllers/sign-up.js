@@ -1,16 +1,21 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+// import { service } from '@ember/service';
 
 export default class SignUpController extends Controller {
   @tracked email = '';
+  @tracked firstName = '';
+  @tracked lastName = '';
 
   @action async createUser(event) {
     event.preventDefault();
-    const user = this.store.createRecord('user', { email: this.email });
+    const { email, firstName, lastName } = this;
+    const user = this.store.createRecord('user', { email, firstName, lastName });
 
     if (user.isValid) {
-      // user.save().then(() => this.transitionToRoute('email-verification')).catch((reason) => console.log('reason?', reason));
+      console.log('creating that record. email:', this.store)
+      user.save().then(() => this.transitionToRoute('email-verification')).catch((reason) => console.log('reason?', reason));
     }
   }
 

@@ -2,7 +2,15 @@
   <h2 class="bold-h2">Sign up</h2>
   <form {{on "submit" this.createUser}}>
     <div class="form-field">
-      <Input @class="form-control" @id="email" @name="email" @placeholder="name@example.com" @type="email" @value={{this.email}} />
+      <Input @class="form-control" @id="first-name" @name="first-name" @placeholder="First Name" @type="text" @value={{this.firstName}} />
+      <label for="first-name">First name</label>
+    </div>
+    <div class="form-field">
+      <Input @class="form-control" @id="last-name" @name="last-name" @placeholder="Last Name" @type="text" @value={{this.lastName}} />
+      <label for="last-name">Last name</label>
+    </div>
+    <div class="form-field">
+      <Input @class="form-control" @id="email" @name="email" @placeholder="Email address" @type="email" @value={{this.email}} />
       <label for="email">Email address</label>
     </div>
     <div class="button-container">

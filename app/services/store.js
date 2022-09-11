@@ -1,3 +1,3 @@
 import Store from '@ember-data/store';
 
-export default class BristleStore extends Store {}
+export default class BristleStore extends Store {};
