@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupApplicationTest } from 'ember-mocha';
-import { visit, currentURL, click, find } from '@ember/test-helpers';
+import { click, currentURL, find, visit } from '@ember/test-helpers';
 
 describe('Landing page and navigation', function() {
   setupApplicationTest();
