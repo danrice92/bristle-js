@@ -1,11 +1,8 @@
-import JSONAPISerializer from '@ember-data/serializer/json-api';
+import RESTSerializer from '@ember-data/serializer/rest';
+import { underscore } from '@ember/string';
 
-export default class ApplicationSerializer extends JSONAPISerializer {
-  serialize(snapshot, options) {
-    let data = {};
-    snapshot.eachAttribute((key) => {
-      data[key] = snapshot.attr(key);
-    });
-    return {[`${snapshot.modelName}`]: data};
+export default class ApplicationSerializer extends RESTSerializer {
+  keyForAttribute(attr) {
+    return underscore(attr);
   }
 }

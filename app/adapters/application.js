@@ -1,6 +1,6 @@
 import RESTAdapater from '@ember-data/adapter/rest';
 import { underscore } from '@ember/string';
-import fetch from 'fetch';
+import { pluralize } from 'ember-inflector';
 
 export default class ApplicationAdapter extends RESTAdapater {
   host = 'http://localhost:3000';
@@ -10,28 +10,7 @@ export default class ApplicationAdapter extends RESTAdapater {
     'Content-Type': 'application/json'
   };
 
-  pathForType(type) {
-    return underscore(type);
-  }
-
-  createRecord = async(store, type, snapshot) => {
-    let body = this.serialize(snapshot);
-    console.log('serialized data', body)
-    try {
-      const response = await fetch(
-        `${this.host}/${this.namespace}/users`,
-        {
-          method: 'post',
-          headers: this.headers,
-          body: JSON.stringify(body)
-        }
-      );
-      const json = await response.json();
-      console.log('hey look, it RESTful', json)
-      return json;
-    } catch (error) {
-      console.log('Caught error:', error);
-      return error;
-    }
+  pathForType(modelName) {
+    return pluralize(underscore(modelName));
   }
 }

@@ -1,22 +1,31 @@
 <nav class="main-navigation">
   <div class="container-fluid">
-    <LinkTo @route="index" class="navbar-brand" id="menu-index">Bristle</LinkTo>
+    <LinkToPage
+      @route="index"
+      @content="Bristle"
+      @class="navbar-brand"
+      @id="menu-index"
+    />
     <button class="navbar-toggler"
-      aria-controls="navbarSupportedContent"
+      aria-controls="navbar-content"
       aria-expanded="false"
       aria-label="Toggle navigation"
-      data-bs-target="#navbarSupportedContent"
+      data-bs-target="#navbar-content"
       data-bs-toggle="collapse"
       type="button"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbar-content">
       <ul class="expandable-navbar">
         <li class="nav-item">
-          <LinkTo @route="sign-up" aria-current="page" class="nav-link active" id="menu-sign-up">
-            Sign up
-          </LinkTo>
+          <LinkToPage
+            @route="sign-up"
+            @content="Sign up"
+            @class="nav-link active"
+            @id="menu-sign-up"
+            @aria-current="page"
+          />
         </li>
       </ul>
     </div>
