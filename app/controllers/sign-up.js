@@ -20,9 +20,27 @@ export default class SignUpController extends Controller {
     });
 
     if (user.isValid) {
-      const visitEmailVerificationPath = () => this.router.transitionTo('email-verification');
       const logError = (error) => console.log('An error occurred in the sign-up controller.', error);
-      user.save().then(visitEmailVerificationPath).catch(logError);
+      user.save().then((response) => {
+        const { id, first_name, last_name, email, email_verified, authentication_token } = response;
+        // this.store.push({
+        //   data: {
+        //     id: id,
+        //     type: 'user',
+        //     attributes: {
+        //       first_name,
+        //       last_name,
+        //       email,
+        //       email_verified,
+        //       authentication_token
+        //     }
+        //   }
+        // })
+        this.store.pushPayload('user', response);
+        console.log('response thing?', response)
+        this.router.transitionTo('email-verification');
+      }).catch(logError);
+      // this.store.push(user).then(visitEmailVerificationPath).catch(logError);
     }
   }
 }
