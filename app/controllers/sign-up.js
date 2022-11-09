@@ -9,10 +9,16 @@ export default class SignUpController extends Controller {
   @tracked lastName = '';
   @service store;
   @service router;
+  @service cookies;
 
   @action async createUser(event) {
     event.preventDefault();
     const { email, firstName, lastName } = this;
+    const cookieService = this.get('cookies');
+    const now = new Date();
+    const oneYearFromNow = now.setFullYear(now.getFullYear() + 1);
+    const logError = (error) => console.log('An error occurred in the sign-up controller.', error);
+
     const user = this.store.createRecord('user', {
       email,
       first_name: firstName,
@@ -20,27 +26,14 @@ export default class SignUpController extends Controller {
     });
 
     if (user.isValid) {
-      const logError = (error) => console.log('An error occurred in the sign-up controller.', error);
       user.save().then((response) => {
-        const { id, first_name, last_name, email, email_verified, authentication_token } = response;
-        // this.store.push({
-        //   data: {
-        //     id: id,
-        //     type: 'user',
-        //     attributes: {
-        //       first_name,
-        //       last_name,
-        //       email,
-        //       email_verified,
-        //       authentication_token
-        //     }
-        //   }
-        // })
-        this.store.pushPayload('user', response);
-        console.log('response thing?', response)
+        console.log('response', response);
+        this.store.pushPayload('user', response.user);
+        cookieService.write('bristleCUT', response.authentication_token, { domain: 'localhost', expires: oneYearFromNow });
+
+        console.log('cookie monster want cookies', cookieService.read())
         this.router.transitionTo('email-verification');
       }).catch(logError);
-      // this.store.push(user).then(visitEmailVerificationPath).catch(logError);
     }
   }
 }
