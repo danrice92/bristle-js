@@ -1,32 +1,30 @@
-import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-
-const logError = (error) => console.log('An error occurred in the sign-up controller.', error);
+import ApplicationController from './application';
 
 const oneYearFromNow = () => {
   const now = new Date();
   return now.setFullYear(now.getFullYear() + 1);
 };
 
-export default class SignUpController extends Controller {
+export default class SignUpController extends ApplicationController {
   @service cookies;
   @service router;
   @service store;
 
-  @action async createUser(event) {
+  @action createUser(event) {
     event.preventDefault();
-    const { cookies, model, router, store } = this;
+    const { cookies, logError, model, router, store } = this;
 
     if (!model.isValid) {
-      logError('user was not valid');
+      logError('sign-up')('user was not valid');
       return;
     }
 
     model.save().then((response) => {
       store.pushPayload('user', response.user);
-      cookies.write('bristleCUT', response.authentication_token, { domain: 'localhost', expires: oneYearFromNow });
+      cookies.write('bristleCUT', response.authenticationToken, { domain: 'localhost', expires: oneYearFromNow });
       router.transitionTo('email-verification');
-    }).catch(logError);
+    }).catch(logError('sign-up'));
   }
 }

@@ -1,5 +1,6 @@
 import RESTSerializer from '@ember-data/serializer/rest';
 import { underscore } from '@ember/string';
+import _ from 'lodash';
 
 export default class ApplicationSerializer extends RESTSerializer {
   keyForAttribute(attr) {
@@ -11,7 +12,19 @@ export default class ApplicationSerializer extends RESTSerializer {
     return json;
   }
 
+  normalize(model, hash, prop) {
+    return super.normalize(...arguments);
+  }
+
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     return super.normalizeResponse(...arguments);
+  }
+
+  modelNameFromPayloadKey(payloadKey) {
+    if (!_.isNaN(_.toNumber(payloadKey))) {
+      return super.modelNameFromPayloadKey('black-hole');
+    } else {
+      return super.modelNameFromPayloadKey(payloadKey);
+    }
   }
 };
