@@ -4,7 +4,7 @@
     <div class="form-field">
       <Input
         @type="text"
-        @value={{this.firstName}}
+        @value={{@model.firstName}}
         class="form-control"
         id="first-name"
         name="first-name"
@@ -15,7 +15,7 @@
     <div class="form-field">
       <Input
         @type="text"
-        @value={{this.lastName}}
+        @value={{@model.lastName}}
         class="form-control"
         id="last-name"
         name="last-name"
@@ -26,7 +26,7 @@
     <div class="form-field">
       <Input
         @type="email"
-        @value={{this.email}}
+        @value={{@model.email}}
         class="form-control"
         id="email"
         name="email"
