@@ -13,4 +13,4 @@ export default class ApplicationAdapter extends RESTAdapater {
   pathForType(modelName) {
     return pluralize(underscore(modelName));
   }
-}
+};
