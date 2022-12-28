@@ -12,10 +12,6 @@ Router.map(function() {
   // public-only pages
   this.route('sign-up');
 
-  // public or private pages
-  this.route('about');
-  this.route('contact-us');
-
   // private pages
   this.route('email-verification');
 });
