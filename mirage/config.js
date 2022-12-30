@@ -1,26 +1,39 @@
-export default function() {
+import { discoverEmberDataModels, applyEmberDataSerializers } from "ember-cli-mirage";
+import { createServer } from 'miragejs';
 
-  // These comments are here to help you get started. Feel free to delete them.
+export default function(config) {
+  const finalConfig = {
+    ...config,
+    models: { ...discoverEmberDataModels(), ...config.models },
+    routes: function() {
+      this.urlPrefix = 'http://localhost:3000';
+      this.namespace = '/api/v1';
+      // this.timing = 400;      // delay for each request, automatically set to 0 during testing
+      this.post('/users', () => ({
+        "user": {
+          "id": 1,
+          "email": "dan@novumopus.com",
+          "email_verified": false,
+          "first_name": "Daniel",
+          "last_name": "Rice",
+          "authentication_token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2Vy"
+        }
+      }));
+    },
+    serializers: applyEmberDataSerializers(config.serializers),
+  };
 
-  /*
-    Config (with defaults).
-
-    Note: these only affect routes defined *after* them!
-  */
-
-  // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-  // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
-  // this.timing = 400;      // delay for each request, automatically set to 0 during testing
-
-  /*
-    Shorthand cheatsheet:
-
-    this.get('/posts');
-    this.post('/posts');
-    this.get('/posts/:id');
-    this.put('/posts/:id'); // or this.patch
-    this.del('/posts/:id');
-
-    https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
-  */
+  return createServer(finalConfig);
 }
+
+/*
+  Shorthand cheatsheet:
+
+  this.get('/posts');
+  this.post('/posts');
+  this.get('/posts/:id');
+  this.put('/posts/:id'); // or this.patch
+  this.del('/posts/:id');
+
+  https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
+*/

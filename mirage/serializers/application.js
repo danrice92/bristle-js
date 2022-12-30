@@ -1,4 +1,4 @@
-import { JSONAPISerializer } from 'miragejs';
+import { RestSerializer } from 'miragejs';
 
-export default JSONAPISerializer.extend({
+export default RestSerializer.extend({
 });
