@@ -15,14 +15,14 @@ module('Application | index', function (hooks) {
 
   test('The user can visit the sign-up path via the main button', async function (assert) {
     await visit('/');
-    await click('[data-test-link-to-page="sign-up"]')
+    await click('[data-test-link-to-page="sign-up"]');
 
     assert.strictEqual(currentURL(), '/sign-up');
   });
 
   test('The user can visit the sign-up path via the navbar', async function (assert) {
     await visit('/');
-    await click('[data-test-link-to-page="navbar-sign-up"]')
+    await click('[data-test-link-to-page="navbar-sign-up"]');
 
     assert.strictEqual(currentURL(), '/sign-up');
   });
