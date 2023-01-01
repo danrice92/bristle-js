@@ -6,5 +6,5 @@ export default class SignUpRoute extends Route {
 
   model() {
     return this.store.createRecord('user');
-  };
+  }
 }

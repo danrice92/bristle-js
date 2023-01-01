@@ -1,3 +1,3 @@
 import ApplicationSerializer from './application';
 
-export default class UserSerializer extends ApplicationSerializer {};
+export default class UserSerializer extends ApplicationSerializer {}

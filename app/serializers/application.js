@@ -7,16 +7,16 @@ export default class ApplicationSerializer extends RESTSerializer {
     return underscore(attr);
   }
 
-  serialize(snapshot, options) {
+  serialize() {
     let json = super.serialize(...arguments);
     return json;
   }
 
-  normalize(model, hash, prop) {
+  normalize() {
     return super.normalize(...arguments);
   }
 
-  normalizeResponse(store, primaryModelClass, payload, id, requestType) {
+  normalizeResponse() {
     return super.normalizeResponse(...arguments);
   }
 
@@ -27,4 +27,4 @@ export default class ApplicationSerializer extends RESTSerializer {
       return super.modelNameFromPayloadKey(payloadKey);
     }
   }
-};
+}

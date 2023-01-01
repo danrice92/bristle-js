@@ -1,8 +1,6 @@
 'use strict';
 
-const browsers = [
-  'defaults'
-];
+const browsers = ['defaults'];
 
 module.exports = {
   browsers,
