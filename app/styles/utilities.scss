@@ -11,9 +11,18 @@
 }
 
 .padded-centered-row {
-  @extend .px-4, .py-4, .my-4, .text-center;
+  @extend .row, .px-4, .py-4, .my-4, .text-center;
 }
 
 .padded-row {
-  @extend .px-4, .py-4, .my-4;
+  @extend .row, .px-4, .py-4, .my-4;
+}
+
+.single-character-field {
+  @extend .form-control, .col, .mx-2;
+  max-width: 2.5rem;
+}
+
+.hide {
+  display: none;
 }

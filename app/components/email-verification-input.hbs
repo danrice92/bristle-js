@@ -1,0 +1,11 @@
+<div class="row justify-content-center">
+  {{#each this.fields as |position|}}
+    <Input
+      @type="text"
+      class="single-character-field"
+      data-position={{position}}
+      id={{position}}
+    />
+    <label class="hide" for={{position}}>{{position}}</label>
+  {{/each}}
+</div>

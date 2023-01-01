@@ -15,10 +15,10 @@ export default function (config) {
       this.post('/users', () => ({
         user: {
           id: 1,
-          email: 'dan@novumopus.com',
+          email: 'testuser@example.com',
           email_verified: false,
-          first_name: 'Daniel',
-          last_name: 'Rice',
+          first_name: 'Test',
+          last_name: 'User',
           authentication_token: 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2Vy',
         },
       }));
