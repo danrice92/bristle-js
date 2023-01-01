@@ -17,6 +17,7 @@ module('Unit | Controller | sign-up', function(hooks) {
   });
 
   test('createUser action transitions to the email-verification path', function(assert) {
+    assert.expect(1);
     const controller = this.owner.lookup('controller:sign-up');
     controller.model = run(() => this.owner.lookup('service:store').createRecord('user'));
     controller.router = {
