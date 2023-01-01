@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'bristle-js',
     environment,
@@ -29,7 +29,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV['ember-cli-mirage'] = { enabled : false };
+    ENV['ember-cli-mirage'] = { enabled: false };
   }
 
   if (environment === 'test') {
@@ -44,14 +44,14 @@ module.exports = function(environment) {
     ENV.APP.rootURL = 'http://localhost:7357';
     ENV.APP.autoboot = false;
     ENV['ember-cli-mirage'] = {
-      enabled : true,
-      trackRequests: true
+      enabled: true,
+      trackRequests: true,
     };
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
-    ENV['ember-cli-mirage'] = { enabled : false };
+    ENV['ember-cli-mirage'] = { enabled: false };
   }
 
   return ENV;

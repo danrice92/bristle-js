@@ -21,10 +21,16 @@ export default class SignUpController extends ApplicationController {
       return;
     }
 
-    model.save().then((response) => {
-      store.pushPayload('user', response.user);
-      cookies.write('bristleCUT', response.authenticationToken, { domain: 'localhost', expires: oneYearFromNow });
-      router.transitionTo('email-verification');
-    }).catch(logError('sign-up'));
+    model
+      .save()
+      .then((response) => {
+        store.pushPayload('user', response.user);
+        cookies.write('bristleCUT', response.authenticationToken, {
+          domain: 'localhost',
+          expires: oneYearFromNow,
+        });
+        router.transitionTo('email-verification');
+      })
+      .catch(logError('sign-up'));
   }
 }

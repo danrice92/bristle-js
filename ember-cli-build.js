@@ -7,15 +7,15 @@ module.exports = function (defaults) {
     autoprefixer: {
       enabled: true,
       cascade: true,
-      sourcemap: true
+      sourcemap: true,
     },
     'ember-fetch': {
       nativePromise: true,
-      preferNative: true
+      preferNative: true,
     },
     sassOptions: {
-      sourceMapEmbed: true
-    }
+      sourceMapEmbed: true,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

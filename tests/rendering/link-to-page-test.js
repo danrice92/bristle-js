@@ -4,11 +4,11 @@ import { hbs } from 'ember-cli-htmlbars';
 import { module, test } from 'qunit';
 import config from '../../config/environment';
 
-module('Rendering | Component | link-to-page', function(hooks) {
+module('Rendering | Component | link-to-page', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('should have the correct properties', async function(assert) {
-    await render(hbs `
+  test('should have the correct properties', async function (assert) {
+    await render(hbs`
       <LinkToPage
         @route="sign-up"
         @aria-current="page"
@@ -18,7 +18,9 @@ module('Rendering | Component | link-to-page', function(hooks) {
         @id="menu-sign-up"
       />
     `);
-    const link = this.element.querySelector('[data-test-link-to-page="sign-up"]');
+    const link = this.element.querySelector(
+      '[data-test-link-to-page="sign-up"]'
+    );
 
     assert.dom(link).hasProperty('href', `${config.APP.rootURL}/sign-up`);
     assert.dom(link).hasAria('current', 'page');
