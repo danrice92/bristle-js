@@ -22,5 +22,7 @@ module('Application | sign-up', function (hooks) {
     assert.strictEqual(currentURL(), '/email-verification');
 
     await fillIn('[data-position="1"]', '88776D');
+
+    // assert.strictEqual(currentURL(), '/');
   });
 });
