@@ -1,11 +1,11 @@
 <div class="row justify-content-center">
   {{#each this.fields as |position|}}
+    <label class="hide" for={{position}}>{{position}}</label>
     <Input
-      @type="text"
       class="single-character-field"
       data-position={{position}}
       id={{position}}
+      {{on "keydown" this.moveCursor}}
     />
-    <label class="hide" for={{position}}>{{position}}</label>
   {{/each}}
 </div>
