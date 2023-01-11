@@ -19,7 +19,10 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    'ember/no-string-prototype-extensions': 'off',
+    quotes: ['error', 'single'],
+  },
   overrides: [
     // node files
     {
