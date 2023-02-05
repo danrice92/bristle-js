@@ -16,13 +16,15 @@ export default class EmailVerificationForm extends Component {
     return document.querySelector(`input[data-position="${position}"]`);
   };
 
-  submitForm = () => {};
+  submitForm = () => {
+    const valueArray = _.map(this.fields, (field) => field.value);
+    const submission = _.join(valueArray, '');
+  };
 
   setValue = ({ field, position, value }) => {
     field.value = value;
     const fieldState = _.find(this.fields, { position });
     fieldState.value = value;
-    console.log('fields', this.fields);
   };
 
   @action handleKeyDown(event) {
