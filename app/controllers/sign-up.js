@@ -1,6 +1,6 @@
+import ApplicationController from './application';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import ApplicationController from './application';
 
 const oneYearFromNow = () => {
   const now = new Date();
@@ -27,7 +27,7 @@ export default class SignUpController extends ApplicationController {
         store.pushPayload('user', response.user);
         cookies.write('bristleCUT', response.authenticationToken, {
           domain: 'localhost',
-          expires: oneYearFromNow,
+          expires: oneYearFromNow
         });
         router.transitionTo('email-verification');
       })
