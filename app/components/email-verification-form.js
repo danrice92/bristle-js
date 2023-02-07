@@ -14,7 +14,7 @@ export default class EmailVerificationForm extends Component {
     { position: 3, value: '' },
     { position: 4, value: '' },
     { position: 5, value: '' },
-    { position: 6, value: '' }
+    { position: 6, value: '' },
   ];
 
   fieldAtPosition = (position) => {
@@ -26,7 +26,7 @@ export default class EmailVerificationForm extends Component {
     const verificationCode = _.join(valueArray, '');
     const cookies = this.cookies.read();
     const user = await this.store.queryRecord('user', {
-      authentication_token: cookies.bristleCUT
+      authentication_token: cookies.bristleCUT,
     });
     user.verificationCode = verificationCode;
     console.log('user', user);
@@ -47,24 +47,27 @@ export default class EmailVerificationForm extends Component {
     const position = _.toNumber(target.dataset.position);
 
     switch (key) {
-      case 'Backspace':
+      case 'Backspace': {
         if (_.isEmpty(initialValue) && position > 1) {
           const previousField = this.fieldAtPosition(position - 1);
           this.setValue({
             field: previousField,
             position: position - 1,
-            value: ''
+            value: '',
           });
           previousField.focus();
         } else {
           this.setValue({ field: target, position, value: '' });
         }
         break;
-      case 'Delete':
+      }
+      case 'Delete': {
         this.setValue({ field: target, position, value: '' });
         break;
-      default:
+      }
+      default: {
         if (metaKey || key.length !== 1) return;
+
         const value = _.capitalize(_.toString(key));
         this.setValue({ field: target, position, value });
         if (position < 6) {
@@ -72,6 +75,7 @@ export default class EmailVerificationForm extends Component {
         } else {
           this.submitForm();
         }
+      }
     }
   }
 }

@@ -27,7 +27,7 @@ export default class SignUpController extends ApplicationController {
         store.pushPayload('user', response.user);
         cookies.write('bristleCUT', response.authenticationToken, {
           domain: 'localhost',
-          expires: oneYearFromNow
+          expires: oneYearFromNow,
         });
         router.transitionTo('email-verification');
       })
