@@ -7,14 +7,14 @@ module.exports = function (defaults) {
     autoprefixer: {
       enabled: true,
       cascade: true,
-      sourcemap: true
+      sourcemap: true,
     },
     'ember-fetch': {
       nativePromise: true,
-      preferNative: true
+      preferNative: true,
     },
     sassOptions: {
-      sourceMapEmbed: true
+      sourceMapEmbed: true,
     },
     debug: {
       LOG_PAYLOADS: true, // data store received to update cache with
@@ -24,8 +24,8 @@ module.exports = function (defaults) {
       LOG_REQUEST_STATUS: true,
       LOG_IDENTIFIERS: true,
       LOG_GRAPH: true,
-      LOG_INSTANCE_CACHE: true
-    }
+      LOG_INSTANCE_CACHE: true,
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
