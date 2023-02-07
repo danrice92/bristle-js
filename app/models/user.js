@@ -6,4 +6,5 @@ export default class UserModel extends Model {
   @attr('boolean') emailVerified;
   @attr('string') firstName;
   @attr('string') lastName;
+  @attr('string') verificationCode;
 }

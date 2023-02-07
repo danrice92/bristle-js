@@ -1,8 +1,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 import _ from 'lodash';
 
 export default class EmailVerificationForm extends Component {
+  @service router;
+  @service store;
+  @service cookies;
+
   fields = [
     { position: 1, value: '' },
     { position: 2, value: '' },
@@ -16,9 +21,17 @@ export default class EmailVerificationForm extends Component {
     return document.querySelector(`input[data-position="${position}"]`);
   };
 
-  submitForm = () => {
+  submitForm = async () => {
     const valueArray = _.map(this.fields, (field) => field.value);
-    const submission = _.join(valueArray, '');
+    const verificationCode = _.join(valueArray, '');
+    const cookies = this.cookies.read();
+    const user = await this.store.queryRecord('user', {
+      authentication_token: cookies.bristleCUT
+    });
+    user.verificationCode = verificationCode;
+    console.log('user', user);
+    const response = await user.save();
+    console.log('verified?', response);
   };
 
   setValue = ({ field, position, value }) => {
