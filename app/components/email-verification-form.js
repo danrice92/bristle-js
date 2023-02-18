@@ -4,9 +4,9 @@ import { inject as service } from '@ember/service';
 import _ from 'lodash';
 
 export default class EmailVerificationForm extends Component {
+  @service cookies;
   @service router;
   @service store;
-  @service cookies;
 
   fields = [
     { position: 1, value: '' },
@@ -21,15 +21,25 @@ export default class EmailVerificationForm extends Component {
     return document.querySelector(`input[data-position="${position}"]`);
   };
 
-  submitForm = async () => {
-    const valueArray = _.map(this.fields, (field) => field.value);
-    const verificationCode = _.join(valueArray, '');
+  fetchUser = async () => {
     const cookies = this.cookies.read();
     const user = await this.store.queryRecord('user', {
       authentication_token: cookies.bristleCUT
     });
+    return user;
+  };
+
+  submitForm = async () => {
+    const valueArray = _.map(this.fields, (field) => field.value);
+    const verificationCode = _.join(valueArray, '');
+    let user = await this.store.peekAll('user');
+    user = user.lastObject || (await this.fetchUser());
     user.verificationCode = verificationCode;
     const response = await user.save();
+
+    if (response.emailVerified) {
+      this.router.transitionTo('dashboard');
+    }
   };
 
   setValue = ({ field, position, value }) => {

@@ -14,4 +14,5 @@ Router.map(function () {
 
   // private pages
   this.route('email-verification');
+  this.route('dashboard');
 });
