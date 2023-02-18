@@ -14,7 +14,7 @@ export default class EmailVerificationForm extends Component {
     { position: 3, value: '' },
     { position: 4, value: '' },
     { position: 5, value: '' },
-    { position: 6, value: '' },
+    { position: 6, value: '' }
   ];
 
   fieldAtPosition = (position) => {
@@ -26,12 +26,10 @@ export default class EmailVerificationForm extends Component {
     const verificationCode = _.join(valueArray, '');
     const cookies = this.cookies.read();
     const user = await this.store.queryRecord('user', {
-      authentication_token: cookies.bristleCUT,
+      authentication_token: cookies.bristleCUT
     });
     user.verificationCode = verificationCode;
-    console.log('user', user);
     const response = await user.save();
-    console.log('verified?', response);
   };
 
   setValue = ({ field, position, value }) => {
@@ -53,7 +51,7 @@ export default class EmailVerificationForm extends Component {
           this.setValue({
             field: previousField,
             position: position - 1,
-            value: '',
+            value: ''
           });
           previousField.focus();
         } else {
