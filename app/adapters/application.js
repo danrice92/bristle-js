@@ -8,7 +8,6 @@ export default class ApplicationAdapter extends RESTAdapater {
 
   authenticationToken = () => {
     const cookies = this.cookies.read();
-    console.log('adding token', cookies.bristleCUT);
     return cookies.bristleCUT;
   };
 
