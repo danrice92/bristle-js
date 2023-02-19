@@ -1,0 +1,4 @@
+{
+  "plugins": [["@babel/plugin-proposal-decorators", { "version": "2022-03" }]],
+  "presets": ["@babel/preset-env"]
+}

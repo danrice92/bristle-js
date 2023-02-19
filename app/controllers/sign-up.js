@@ -1,28 +1,36 @@
-import Controller from '@ember/controller';
-import { tracked } from '@glimmer/tracking';
+import ApplicationController from './application';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default class SignUpController extends Controller {
-  @tracked email = '';
-  @tracked firstName = '';
-  @tracked lastName = '';
-  @service store;
+const oneYearFromNow = () => {
+  const now = new Date();
+  return now.setFullYear(now.getFullYear() + 1);
+};
+
+export default class SignUpController extends ApplicationController {
+  @service cookies;
   @service router;
+  @service store;
 
-  @action async createUser(event) {
+  @action createUser(event) {
     event.preventDefault();
-    const { email, firstName, lastName } = this;
-    const user = this.store.createRecord('user', {
-      email,
-      first_name: firstName,
-      last_name: lastName
-    });
+    const { cookies, logError, model, router, store } = this;
 
-    if (user.isValid) {
-      const visitEmailVerificationPath = () => this.router.transitionTo('email-verification');
-      const logError = (error) => console.log('An error occurred in the sign-up controller.', error);
-      user.save().then(visitEmailVerificationPath).catch(logError);
+    if (!model.isValid) {
+      logError('sign-up')('user was not valid');
+      return;
     }
+
+    model
+      .save()
+      .then((response) => {
+        store.pushPayload('user', response.user);
+        cookies.write('bristleCUT', response.authenticationToken, {
+          domain: 'localhost',
+          expires: oneYearFromNow,
+        });
+        router.transitionTo('email-verification');
+      })
+      .catch(logError('sign-up'));
   }
 }

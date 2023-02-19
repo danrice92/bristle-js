@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: 'bristle-js',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -29,6 +29,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = { enabled: false };
   }
 
   if (environment === 'test') {
@@ -40,11 +41,17 @@ module.exports = function (environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootURL = 'http://localhost:7357';
     ENV.APP.autoboot = false;
+    ENV['ember-cli-mirage'] = {
+      enabled: true,
+      trackRequests: true,
+    };
   }
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['ember-cli-mirage'] = { enabled: false };
   }
 
   return ENV;
