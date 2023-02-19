@@ -12,4 +12,3 @@
 
 - [ ] New behavior is tested
 - [ ] Documentation is up-to-date
-- [ ] All inlined Bootstrap classes are extracted into styling extensions
