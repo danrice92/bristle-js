@@ -1,8 +1,0 @@
-.form-field {
-  @extend .form-floating, .mb-3;
-}
-
-.single-character-field {
-  @extend .form-control, .col, .mx-2;
-  max-width: 2.5rem;
-}
