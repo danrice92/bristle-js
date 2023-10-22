@@ -1,0 +1,37 @@
+{
+  "rules": {
+    "no-console": 1,
+    "no-unused-vars": [
+      "warn",
+      {
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "response|reject|success|error|next"
+      }
+    ],
+    "react/jsx-uses-vars": [2],
+    "semi": 1,
+    "space-before-function-paren": [0],
+    "comma-dangle": [1, "never"],
+    "quotes": [1, "single", { "avoidEscape": true }],
+    "keyword-spacing": [
+      1,
+      {
+        "before": true,
+        "after": true,
+        "overrides": {
+          "function": { "after": false }
+        }
+      }
+    ],
+    "space-before-blocks": [
+      1,
+      {
+        "functions": "always",
+        "keywords": "always",
+        "classes": "always"
+      }
+    ],
+    "object-curly-spacing": [1, "always", { "objectsInObjects": false }],
+    "array-bracket-spacing": ["error", "never"]
+  }
+}
