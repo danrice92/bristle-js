@@ -4,7 +4,10 @@ function Public(props) {
   const { children } = props;
 
   return (
-    <Container fluid className="public-container">
+    <Container
+      fluid
+      className="public-container d-flex align-items-center justify-content-center"
+    >
       {children}
     </Container>
   );

@@ -1,11 +1,15 @@
 test('renders the landing page', () => {
   visit('/');
-  const heroText = page.getByText('Launch your career with');
+  const heroText = page.getByRole('heading', {
+    name: 'Launch your career with'
+  });
   expect(heroText).toBeInTheDocument();
 });
 
 test('can navigate to the signup page', async () => {
-  const { user } = visit('/');
+  visit('/');
   const signupButton = page.getByRole('link', { name: 'Sign up' });
-  await user.click(signupButton);
+  await navigate(signupButton);
+  const label = page.getByRole('heading', { name: 'Sign up' });
+  expect(label).toBeInTheDocument();
 });

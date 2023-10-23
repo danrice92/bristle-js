@@ -10,10 +10,10 @@ function Landing() {
     <Public>
       <Row className="flex-column">
         <Col className="d-flex justify-content-center">
-          <p>Launch your career with</p>
+          <p role="heading">Launch your career with</p>
         </Col>
-        <Col className="d-flex justify-content-center">
-          <img src={logo} className="img-fluid" alt="Bristle logo" />
+        <Col>
+          <img src={logo} className="img-fluid" alt="Bristle" />
         </Col>
         <Col className="d-flex justify-content-center mt-4">
           <Link to="/sign-up" className="btn btn-primary">
